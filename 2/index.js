@@ -9,11 +9,11 @@ app.get('/numbers',async (req, res) => {
   const urls=queryParams["url"];
 
   const allResponses = await Promise.all(urls.map(url => fetchData(url)));
-  console.log(allResponses);
+//   console.log(allResponses);
   let li=[];
   allResponses.forEach((item)=> li=li.concat(item["numbers"]));
   li.sort((a,b)=>a-b);
-  res.json(li);
+  res.json({numbers:li});
 
 
 });
